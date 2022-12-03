@@ -1,3 +1,6 @@
+let userWins;
+let cpuWins;
+let winArray = [];
 
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
@@ -12,13 +15,14 @@ function play(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log("Draw");
     }
-    
     else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
-        onsole.log(`you win ${playerSelection}`);
+        console.log(`you win ${playerSelection}`);
     } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
-        onsole.log(`you win ${playerSelection}`);
+        console.log(`you win ${playerSelection}`);
     } else if ((playerSelection === "paper") && (computerSelection === "rock")){
         console.log(`you win ${playerSelection}`)
+    } else {
+        console.log("you lose")
     }
 
 
@@ -33,6 +37,7 @@ function game() {
 
 function promptUser() {
 let userInput = prompt("Please enter Rock Paper or Scissors", "Rock").toLowerCase()
+let currentScore
 return userInput 
 
 }
