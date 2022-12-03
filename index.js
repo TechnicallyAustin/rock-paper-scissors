@@ -80,8 +80,7 @@ function game() {
 }
 
 function promptUser() {
-let userInput = prompt("Please enter Rock Paper or Scissors", "Rock").toLowerCase()
-let currentScore
+let userInput = prompt("Please enter Rock Paper or Scissors", "Rock").toString().toLowerCase()
 return userInput 
 
 }
