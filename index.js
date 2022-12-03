@@ -17,7 +17,7 @@ let win =
   `${computerSelection} ` +
   "Score -- " +
   "User: " +
-  `${userWins} ` +
+  `${userWins + 1} ` +
   "Cpu: " +
   `${cpuWins} `;
 
@@ -30,7 +30,7 @@ let lose =
   "User: " +
   `${userWins} ` +
   "Cpu: " +
-  `${cpuWins} `;
+  `${cpuWins + 1} `;
 
 
   // plays a single round of rock paper scissors
