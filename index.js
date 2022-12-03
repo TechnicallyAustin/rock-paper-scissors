@@ -2,30 +2,23 @@
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
     let cpuChoice = Math.floor(Math.random() * 2);
-    return choices[cpuChoice]
+    return choices[cpuChoice].toLocaleUpperCase()
 
 }
 
 function play(playerSelection, computerSelection) {
     // plays a single round of rock paper scissors
     //return results
-    switch(playerSelection) {
-        case rock:
-            if (computerSelection === "scissors") {
-                console.log(`you picked: rock -- the computer picked ${computerSelection}`)
-                console.log
-            }
-        break
-
-        case papper:
-
-        break
-
-        case scissors:
-
-        break
-
-        default:
+    if (playerSelection === computerSelection) {
+        console.log("Draw");
+    }
+    
+    else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
+        onsole.log(`you win ${playerSelection}`);
+    } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
+        onsole.log(`you win ${playerSelection}`);
+    } else if ((playerSelection === "paper") && (computerSelection === "rock")){
+        console.log(`you win ${playerSelection}`)
     }
 
 
