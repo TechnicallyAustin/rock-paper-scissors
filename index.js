@@ -2,10 +2,11 @@
 let userWins = 0;
 let cpuWins = 0;
 
+
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
-    let cpuChoice = Math.floor(Math.random() * 2);
-    return choices[cpuChoice].toLocaleUpperCase()
+    let cpuChoice = choices[Math.floor(Math.random() * 3)];
+    console.log(cpuChoice)
 
 }
 
@@ -41,15 +42,21 @@ let lose =
     else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
         userWins += 1;
         console.log(win);
+        alert(win);
+    
     } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
         userWins += 1;
         console.log(win);
+        alert(win)
+    
     } else if ((playerSelection === "paper") && (computerSelection === "rock")){
         userWins += 1;
-        console.log(win);
+        alert(win);
+    
     } else {
         cpuWins += 1
         console.log(lose);
+        alert(lose);
     }
 
 
@@ -58,7 +65,8 @@ let lose =
 function game() {
     // call play() function at least 5 times to simulate a game
     for (let i = 0; i < 5; i++){
-        play(promptUser(), getComputerChoice)
+        play(promptUser(), getComputerChoice())
+
     }
 }
 
