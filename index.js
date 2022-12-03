@@ -6,7 +6,7 @@ let cpuWins = 0;
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
     let cpuChoice = choices[Math.floor(Math.random() * 3)];
-    console.log(cpuChoice)
+    return cpuChoice
 
 }
 
@@ -33,20 +33,32 @@ let lose =
   "Cpu: " +
   `${cpuWins + 1} `;
 
+  let draw =
+    "It's a Draw! " +
+    "you used " +
+    `${playerSelection} ` +
+    "the cpu picked " +
+    `${computerSelection} ` +
+    "Score -- " +
+    "User: " +
+    `${userWins} ` +
+    "Cpu: " +
+    `${cpuWins + 1} `;
+
 
   // plays a single round of rock paper scissors
     //return results
     if (playerSelection === computerSelection) {
-        console.log("Draw");
+        alert(draw);
     }
     else if ((playerSelection === "rock") && (computerSelection === "scissors")) {
         userWins += 1;
-        console.log(win);
+       // console.log(win);
         alert(win);
     
     } else if ((playerSelection === "scissors") && (computerSelection === "paper")) {
         userWins += 1;
-        console.log(win);
+      //  console.log(win);
         alert(win)
     
     } else if ((playerSelection === "paper") && (computerSelection === "rock")){
@@ -55,18 +67,15 @@ let lose =
     
     } else {
         cpuWins += 1
-        console.log(lose);
+      //  console.log(lose);
         alert(lose);
     }
-
-
 }
 
 function game() {
     // call play() function at least 5 times to simulate a game
     for (let i = 0; i < 5; i++){
         play(promptUser(), getComputerChoice())
-
     }
 }
 
