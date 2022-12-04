@@ -10,47 +10,29 @@ function getComputerChoice() {
     return cpuChoice
 }
 
-function roundWin() {
-    let win =
-      "you win using " +
-      `${playerSelection} ` +
-      "the cpu picked " +
-      `${computerSelection} ` +
-      "Score -- " +
-      "User: " +
-      `${userWins + 1} ` +
-      "Cpu: " +
-      `${cpuWins} `;
-}
-function roundloss() {
-    let lose =
-      "you lose using " +
-      `${playerSelection} ` +
-      "the cpu picked " +
-      `${computerSelection} ` +
-      "Score -- " +
-      "User: " +
-      `${userWins} ` +
-      "Cpu: " +
-      `${cpuWins + 1} `;
-}
-
-function draw() {
-    let draw =
-      "It's a Draw! " +
-      "you used " +
-      `${playerSelection} ` +
-      "the cpu picked " +
-      `${computerSelection} ` +
-      "Score -- " +
-      "User: " +
-      `${userWins} ` +
-      "Cpu: " +
-      `${cpuWins + 1} `;
-}
 
 function play(playerSelection, computerSelection) {
+let win =
+  "you win using " +
+  `${playerSelection} ` +
+  "the cpu picked " +
+  `${computerSelection} ` +
+  "Score -- " +
+  "User: " +
+  `${userWins + 1} ` +
+  "Cpu: " +
+  `${cpuWins} `;
 
+let lose =
+  "you lose using " +
+  `${playerSelection} ` +
+  "the cpu picked " +
+  `${computerSelection} `+
+  "Score -- " +
+  "User: " +
+  `${userWins} ` +
+  "Cpu: " +
+  `${cpuWins + 1} `;
 
   let draw =
     "It's a Draw! " +
