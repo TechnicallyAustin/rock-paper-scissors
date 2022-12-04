@@ -75,6 +75,10 @@ function game() {
     // call play() function at least 5 times to simulate a game
     for (let i = 0; i < 5; i++){
         play(promptUser(), getComputerChoice())
+        if ((totalWins === 5) && (userWins > cpuWins)){
+            alert("You Win the Game!")
+        }
+        alert("You Lose the Game!")
     }
 }
 
