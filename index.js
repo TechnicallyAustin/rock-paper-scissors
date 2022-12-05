@@ -66,11 +66,17 @@ function game() {
   // call play() function at least 5 times to simulate a game
   for (let i = 0; i < 5; i++) {
     play(promptUser(), getComputerChoice());
+  }
     if (totalWins === 5 && userWins > cpuWins) {
       alert("You Win the Game!");
-    }
+    } else if (totalWins === 5 && userWins === cpuWins) {
+      alert("It's a Draw!")
+    } else {
     alert("You Lose the Game!");
-  }
+    }
+
+    userWins = 0;
+    cpuWins = 0;
 }
 
 function winner() {
