@@ -15,7 +15,7 @@ function play(playerSelection, computerSelection) {
     `${computerSelection} ` +
     "Score -- " +
     "User: " +
-    `${userWins + 1} ` +
+    `${userWins += 1} ` +
     "Cpu: " +
     `${cpuWins} `;
 
@@ -28,7 +28,7 @@ function play(playerSelection, computerSelection) {
     "User: " +
     `${userWins} ` +
     "Cpu: " +
-    `${cpuWins + 1} `;
+    `${cpuWins += 1} `;
 
   let draw =
     "It's a Draw! " +
@@ -40,7 +40,7 @@ function play(playerSelection, computerSelection) {
     "User: " +
     `${userWins} ` +
     "Cpu: " +
-    `${cpuWins + 1} `;
+    `${cpuWins1} `;
 
   // plays a single round of rock paper scissors
   //return results
@@ -49,15 +49,19 @@ function play(playerSelection, computerSelection) {
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     userWins += 1;
     alert(win);
+    //return win
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     userWins += 1;
     alert(win);
+    //return win
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     userWins += 1;
     alert(win);
+    //return win
   } else {
     cpuWins += 1;
     alert(lose);
+    //return win
   }
 }
 
@@ -69,10 +73,13 @@ function game() {
   }
     if (totalWins === 5 && userWins > cpuWins) {
       alert("You Win the Game!");
+      // return "You Win the Game!
     } else if (totalWins === 5 && userWins === cpuWins) {
-      alert("It's a Draw!")
+      alert("It's a Draw!");
+      // return "It's a Draw!!
     } else {
-    alert("You Lose the Game!");
+      alert("You Lose the Game!");
+      // return "You Lose the Game!
     }
 
     userWins = 0;
