@@ -74,24 +74,29 @@ function addButtons() {
   paperButton.setAttribute('id', 'paper-button')
   let scissorsButton = document.body.appendChild(document.createElement("button"));
   scissorsButton.textContent = "Scissors"
-  scissorsButton.setAttribute('id', 'paper-button')
+  scissorsButton.setAttribute('id', 'scissor-button')
+};
 
+function addButtonEventListeners() {
   const rockBtnSelector = document.getElementById('rock-button')
   let rockEvent = rockBtnSelector.addEventListener('click', () => {
-    alert("rock")
+    play("rock", getComputerChoice() )
   });
-  
-
   const paperBtnSelector = document.getElementById("paper-button");
   let paperEvent = paperBtnSelector.addEventListener("click", () => {
-    alert("paper")
+    play("paper", getComputerChoice());
   });
-
-  const scissorBtnSelector = document.getElementById("scissors-button");
+  const scissorBtnSelector = document.getElementById("scissor-button");
   let scissorsEvent = scissorBtnSelector.addEventListener("click", () => {
-    alert("scissors")
+    play("scissors", getComputerChoice());
   });
 }
+
+function addResultsDiv() {
+  
+}
+
+
 function game() {
   //let totalWins = cpuWins + userWins;
   // call play() function at least 5 times to simulate a game
