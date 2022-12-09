@@ -93,7 +93,21 @@ function addButtonEventListeners() {
 }
 
 function addResultsDiv() {
-  
+  // creates parent Div
+  let resultsDIv = document.body.appendChild(createElement('div'))
+  // creates child Divs
+  let userDiv = resultsDIv.appendChild(document.createElement('div'))
+  let cpuDiv = resultsDIv.appendChild(document.createElement("div"));
+  let totalRoundsDiv = resultsDIv.appendChild(document.createElement("div"));
+  let winnerDiv = resultsDiv.appendChild(document.createElement('div'))
+  // creates div labels
+  let userDivLabel = userDiv.appendChild(document.createElement('h2'))
+  let cpuDivLabel = cpuDiv.appendChild(document.createElement("h2"));
+  let totalRoundsDivLabel = totalRoundsDiv.appendChild(document.createElement("h2"));
+
+
+
+
 }
 
 
