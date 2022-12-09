@@ -9,6 +9,7 @@ function getComputerChoice() {
 function play(playerSelection, computerSelection) {
   let userWins = 0;
   let cpuWins = 0;
+  // Change outcome statements to DOM Scoreboard updates
   let win =
     "you win using " +
     `${playerSelection} ` +
@@ -47,22 +48,23 @@ function play(playerSelection, computerSelection) {
   //return results
   if (playerSelection === computerSelection) {
     alert(draw);
+    // Change Alert here to a DOM update
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     userWins += 1;
     alert(win);
-    //return win
+    // Change Alert here to a DOM update
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     userWins += 1;
     alert(win);
-    //return win
+    // Change Alert here to a DOM update
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     userWins += 1;
     alert(win);
-    //return win
+    // Change Alert here to a DOM update
   } else {
     cpuWins += 1;
     alert(lose);
-    //return win
+    // Change Alert here to a DOM update
   }
 }
 
@@ -98,12 +100,13 @@ function addButtonEventListeners() {
 function addResultsDiv() {
   // Selectors
     // div selectors
-  let userDivSelector = document.querySelector('div')
-  let cpuDivSelector = document.querySelector('div')
-  let totalRoundsDivSelector = document.querySelector('div')
-  let resultsDivSelector = document.querySelector('div')
-  let winnerDivSelector = document.querySelector('div')
-  let scoreDivSelector = document.querySelector('div')
+  let userDivSelector = document.getElementById("user-div")
+  let cpuDivSelector = document.getElementById("cpu-div")
+  let totalRoundsDivSelector = document.getElementById("total-div")
+  let resultsDivSelector = document.getElementById("reslts-div")
+  let winnerDivSelector = document.getElementById("winner-div")
+  let scoreDivSelector = document.getElementById("score-div")
+  let gameDivSelector = document.getElementById("game-div")
     // label selectors
       // or use document.querySelectorAll('div') to gather all divs
         // give the divs specific Id's or classes to
@@ -112,7 +115,6 @@ function addResultsDiv() {
   let cpuDivLabelSelector = document.getElementById("cpu-div")
   let totalRoundsDivLabelSelector = document.getElementById("total-div")
   let winnerDivLabelSelector = document.getElementById("winner-div")
-
   // creates parent Div
   let resultsDiv = document.body.appendChild(document.createElement('div'))
   // creates child Divs
@@ -121,27 +123,30 @@ function addResultsDiv() {
   let totalRoundsDiv = resultsDiv.appendChild(document.createElement("div"));
   let winnerDiv = resultsDiv.appendChild(document.createElement('div'))
   let scoreDiv = resultsDiv.appendChild(document.createElement('div'))
+  // creates child Div id's
+resultsDiv.setAttribute('id','results-div' )   
+userDiv.setAttribute('id','user-div' )  
+cpuDiv.setAttribute('id','cpu-div' )
+totalRoundsDiv.setAttribute('id','total-div' )
+winnerDiv.setAttribute('id','winner-div' )
+scoreDiv.setAttribute('id','score-div' )
   // creates div labels
-  let resultsDivLabel = scoreDiv.appendChild(document.createElement('h2'))
+  let scoreDivLabel = scoreDiv.appendChild(document.createElement('h2'))
   let userDivLabel = userDiv.appendChild(document.createElement('h3'))
   let cpuDivLabel = cpuDiv.appendChild(document.createElement("h3"));
   let totalRoundsDivLabel = totalRoundsDiv.appendChild(document.createElement("h3"));
   let winnerDivLabel = winnerDiv.appendChild(document.createElement('h3'))
   // assigns label inner text and id's
-  resultsDivLabel.textContent = "Scoreboard"
-  resultsDivLabel.setAttribute('id', 'results-dv')
+  scoreDivLabel.textContent = "Scoreboard"
+  scoreDivLabel.setAttribute('id', 'results-label')
   userDivLabel.textContent = "You"
-  userDivLabel.setAttribute('id', 'user-div')
+  userDivLabel.setAttribute('id', 'user-label')
   cpuDivLabel.textContent = "Computer"
-  cpuDivLabel.setAttribute('id', 'cpu-div')
+  cpuDivLabel.setAttribute('id', 'cpu-label')
   totalRoundsDivLabel.textContent = "Rounds Played:"
-  totalRoundsDivLabel.setAttribute('id', 'total-div')
+  totalRoundsDivLabel.setAttribute('id', 'total-label')
   winnerDivLabel.textContent = "The Winner is...."
-  winnerDivLabel.setAttribute('id', 'winner-div')
-
-
-
-
+  winnerDivLabel.setAttribute('id', 'winner-label')
 }
 
 
