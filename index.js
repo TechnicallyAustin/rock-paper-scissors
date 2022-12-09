@@ -1,5 +1,4 @@
-let userWins = 0;
-let cpuWins = 0;
+
 
 function getComputerChoice() {
   let choices = ["rock", "paper", "scissors"];
@@ -8,6 +7,8 @@ function getComputerChoice() {
 }
 
 function play(playerSelection, computerSelection) {
+  let userWins = 0;
+  let cpuWins = 0;
   let win =
     "you win using " +
     `${playerSelection} ` +
@@ -40,7 +41,7 @@ function play(playerSelection, computerSelection) {
     "User: " +
     `${userWins} ` +
     "Cpu: " +
-    `${cpuWins1} `;
+    `${cpuWins} `;
 
   // plays a single round of rock paper scissors
   //return results
@@ -66,13 +67,15 @@ function play(playerSelection, computerSelection) {
 }
 
 function addButtons() {
-  let rockButton = document.body.appendChild(document.createElement("button"));
+  let gameDiv = document.body.appendChild(document.createElement('div'))
+  gameDiv.setAttribute('id', 'game-div')
+  let rockButton = gameDiv.appendChild(document.createElement("button"));
   rockButton.textContent = "Rock"
   rockButton.setAttribute('id', 'rock-button')
-  let paperButton = document.body.appendChild(document.createElement("button"));
+  let paperButton = gameDiv.appendChild(document.createElement("button"));
   paperButton.textContent = "Paper"
   paperButton.setAttribute('id', 'paper-button')
-  let scissorsButton = document.body.appendChild(document.createElement("button"));
+  let scissorsButton = gameDiv.appendChild(document.createElement("button"));
   scissorsButton.textContent = "Scissors"
   scissorsButton.setAttribute('id', 'scissor-button')
 };
@@ -93,17 +96,48 @@ function addButtonEventListeners() {
 }
 
 function addResultsDiv() {
+  // Selectors
+    // div selectors
+  let userDivSelector = document.querySelector('div')
+  let cpuDivSelector = document.querySelector('div')
+  let totalRoundsDivSelector = document.querySelector('div')
+  let resultsDivSelector = document.querySelector('div')
+  let winnerDivSelector = document.querySelector('div')
+  let scoreDivSelector = document.querySelector('div')
+    // label selectors
+      // or use document.querySelectorAll('div') to gather all divs
+        // give the divs specific Id's or classes to
+  let resultsDivLabelSelector = document.getElementById("results-div")
+  let userDivLabelSelector = document.getElementById("user-div")
+  let cpuDivLabelSelector = document.getElementById("cpu-div")
+  let totalRoundsDivLabelSelector = document.getElementById("total-div")
+  let winnerDivLabelSelector = document.getElementById("winner-div")
+
   // creates parent Div
-  let resultsDIv = document.body.appendChild(createElement('div'))
+  let resultsDiv = document.body.appendChild(document.createElement('div'))
   // creates child Divs
-  let userDiv = resultsDIv.appendChild(document.createElement('div'))
-  let cpuDiv = resultsDIv.appendChild(document.createElement("div"));
-  let totalRoundsDiv = resultsDIv.appendChild(document.createElement("div"));
+  let userDiv = resultsDiv.appendChild(document.createElement('div'))
+  let cpuDiv = resultsDiv.appendChild(document.createElement("div"));
+  let totalRoundsDiv = resultsDiv.appendChild(document.createElement("div"));
   let winnerDiv = resultsDiv.appendChild(document.createElement('div'))
+  let scoreDiv = resultsDiv.appendChild(document.createElement('div'))
   // creates div labels
-  let userDivLabel = userDiv.appendChild(document.createElement('h2'))
-  let cpuDivLabel = cpuDiv.appendChild(document.createElement("h2"));
-  let totalRoundsDivLabel = totalRoundsDiv.appendChild(document.createElement("h2"));
+  let resultsDivLabel = scoreDiv.appendChild(document.createElement('h2'))
+  let userDivLabel = userDiv.appendChild(document.createElement('h3'))
+  let cpuDivLabel = cpuDiv.appendChild(document.createElement("h3"));
+  let totalRoundsDivLabel = totalRoundsDiv.appendChild(document.createElement("h3"));
+  let winnerDivLabel = winnerDiv.appendChild(document.createElement('h3'))
+  // assigns label inner text and id's
+  resultsDivLabel.textContent = "Scoreboard"
+  resultsDivLabel.setAttribute('id', 'results-dv')
+  userDivLabel.textContent = "You"
+  userDivLabel.setAttribute('id', 'user-div')
+  cpuDivLabel.textContent = "Computer"
+  cpuDivLabel.setAttribute('id', 'cpu-div')
+  totalRoundsDivLabel.textContent = "Rounds Played:"
+  totalRoundsDivLabel.setAttribute('id', 'total-div')
+  winnerDivLabel.textContent = "The Winner is...."
+  winnerDivLabel.setAttribute('id', 'winner-div')
 
 
 
