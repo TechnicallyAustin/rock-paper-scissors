@@ -65,10 +65,37 @@ function play(playerSelection, computerSelection) {
   }
 }
 
+function addButtons() {
+  let rockButton = document.body.appendChild(document.createElement("button"));
+  rockButton.textContent = "Rock"
+  rockButton.setAttribute('id', 'rock-button')
+  let paperButton = document.body.appendChild(document.createElement("button"));
+  paperButton.textContent = "Paper"
+  paperButton.setAttribute('id', 'paper-button')
+  let scissorsButton = document.body.appendChild(document.createElement("button"));
+  scissorsButton.textContent = "Scissors"
+  scissorsButton.setAttribute('id', 'paper-button')
+
+  const rockBtnSelector = document.getElementById('rock-button')
+  let rockEvent = rockBtnSelector.addEventListener('click', () => {
+    alert("rock")
+  });
+  
+
+  const paperBtnSelector = document.getElementById("paper-button");
+  let paperEvent = paperBtnSelector.addEventListener("click", () => {
+    alert("paper")
+  });
+
+  const scissorBtnSelector = document.getElementById("scissors-button");
+  let scissorsEvent = scissorBtnSelector.addEventListener("click", () => {
+    alert("scissors")
+  });
+}
 function game() {
-  let totalWins = cpuWins + userWins;
+  //let totalWins = cpuWins + userWins;
   // call play() function at least 5 times to simulate a game
-  for (let i = 0; i < 5; i++) {
+ /* for (let i = 0; i < 5; i++) {
     play(promptUser(), getComputerChoice());
   }
     if (totalWins === 5 && userWins > cpuWins) {
@@ -81,9 +108,9 @@ function game() {
       alert("You Lose the Game!");
       // return "You Lose the Game!
     }
-
-    userWins = 0;
+  userWins = 0;
     cpuWins = 0;
+    */
 }
 
 function winner() {
