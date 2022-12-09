@@ -49,9 +49,13 @@ function play(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     alert(draw);
     // Change Alert here to a DOM update
+
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     userWins += 1;
-    alert(win);
+    //alert(win);
+    let userDivSelector = document.getElementById("user-div");
+    userDivSelector.textContent = `${userWins += 1}`
+
     // Change Alert here to a DOM update
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     userWins += 1;
@@ -117,28 +121,28 @@ function addResultsDiv() {
   let winnerDivLabelSelector = document.getElementById("winner-div")
   // creates parent Div
   let resultsDiv = document.body.appendChild(document.createElement('div'))
-  // creates child Divs
+    // creates child Divs
   let userDiv = resultsDiv.appendChild(document.createElement('div'))
   let cpuDiv = resultsDiv.appendChild(document.createElement("div"));
   let totalRoundsDiv = resultsDiv.appendChild(document.createElement("div"));
   let winnerDiv = resultsDiv.appendChild(document.createElement('div'))
   let scoreDiv = resultsDiv.appendChild(document.createElement('div'))
-  // creates child Div id's
-resultsDiv.setAttribute('id','results-div' )   
-userDiv.setAttribute('id','user-div' )  
-cpuDiv.setAttribute('id','cpu-div' )
-totalRoundsDiv.setAttribute('id','total-div' )
-winnerDiv.setAttribute('id','winner-div' )
-scoreDiv.setAttribute('id','score-div' )
+    // creates child Div id's
+  resultsDiv.setAttribute('id','results-div' )   
+  userDiv.setAttribute('id','user-div' )  
+  cpuDiv.setAttribute('id','cpu-div' )
+  totalRoundsDiv.setAttribute('id','total-div' )
+  winnerDiv.setAttribute('id','winner-div' )
+  scoreDiv.setAttribute('id','score-div' )
   // creates div labels
-  let scoreDivLabel = scoreDiv.appendChild(document.createElement('h2'))
+  //let scoreDivLabel = gameDivSelector.appendChild(document.createElement('h2'))
   let userDivLabel = userDiv.appendChild(document.createElement('h3'))
   let cpuDivLabel = cpuDiv.appendChild(document.createElement("h3"));
   let totalRoundsDivLabel = totalRoundsDiv.appendChild(document.createElement("h3"));
   let winnerDivLabel = winnerDiv.appendChild(document.createElement('h3'))
   // assigns label inner text and id's
-  scoreDivLabel.textContent = "Scoreboard"
-  scoreDivLabel.setAttribute('id', 'results-label')
+  //scoreDivLabel.textContent = "Scoreboard"
+  //scoreDivLabel.setAttribute('id', 'results-label')
   userDivLabel.textContent = "You"
   userDivLabel.setAttribute('id', 'user-label')
   cpuDivLabel.textContent = "Computer"
@@ -149,8 +153,17 @@ scoreDiv.setAttribute('id','score-div' )
   winnerDivLabel.setAttribute('id', 'winner-label')
 }
 
+function createScoreDiv() {
+  let gameDiv = document.getElementById('game-div');
+  let scoreTitle = gameDiv.insertAdjacentElement("afterend", document.createElement('h2'))
+  scoreTitle.textContent = "Scoreboard"
+}
 
 function game() {
+  addButtons()
+  addButtonEventListeners()
+  createScoreDiv()
+  addResultsDiv()
   //let totalWins = cpuWins + userWins;
   // call play() function at least 5 times to simulate a game
  /* for (let i = 0; i < 5; i++) {
