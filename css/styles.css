@@ -1,0 +1,45 @@
+:root {
+  margin: 0;
+  left: 0;
+}
+
+h1 {
+  background-color: red;
+  width: 100%;
+  height: 6vh;
+  margin: 0;
+
+  color: white;
+  border-bottom: 8px solid black;
+}
+
+h2 {
+  background-color: green;
+  margin-top: 0;
+  color: white;
+}
+
+#game-div {
+  background-color: black;
+  height: 45vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10%;
+  position: relative;
+}
+
+#game-div button {
+  background-color: Purple;
+  padding: 6%;
+  color: white;
+  font-size: 28px;
+}
+
+#results-div {
+  background-color: green;
+  margin-top: 0;
+  display: flex;
+  gap: 4%;
+  justify-content: space-around;
+}
