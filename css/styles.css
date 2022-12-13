@@ -1,22 +1,31 @@
 :root {
   margin: 0;
+  top: 0;
   left: 0;
 }
 
 h1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background-color: red;
   width: 100%;
   height: 6vh;
   margin: 0;
+  padding-left: 3%;
 
   color: white;
   border-bottom: 8px solid black;
 }
 
-h2 {
+
+#scoreboard-div {
   background-color: green;
   margin-top: 0;
   color: white;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  text-align: center;
 }
 
 #game-div {
@@ -25,21 +34,42 @@ h2 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 10%;
+  gap: 3%;
   position: relative;
 }
 
 #game-div button {
   background-color: Purple;
-  padding: 6%;
   color: white;
   font-size: 28px;
+}
+
+#rock-div,
+#paper-div,
+#scissor-div {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+#rock-button-image,
+#paper-button-image,
+#scissor-button-image {
+  width: 100%;
+  padding: 0;
 }
 
 #results-div {
   background-color: green;
   margin-top: 0;
   display: flex;
-  gap: 4%;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 8%;
+  padding-left: 0;
 }
+
+
