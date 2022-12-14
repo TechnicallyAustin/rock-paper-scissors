@@ -13,9 +13,22 @@ h1 {
   height: 6vh;
   margin: 0;
   padding-left: 3%;
-
   color: white;
   border-bottom: 8px solid black;
+}
+
+#selection {
+padding-left: 10%;
+  padding-right: 10%;
+  top: 8%;
+  background-color: black;
+  z-index: 100;
+  position: absolute;
+}
+
+#selection-text {
+color: white;
+
 }
 
 
@@ -36,6 +49,7 @@ h1 {
   align-items: center;
   gap: 3%;
   position: relative;
+  padding: 4%;
 }
 
 #game-div button {
@@ -62,6 +76,7 @@ h1 {
 }
 
 #results-div {
+  height: auto;
   background-color: green;
   margin-top: 0;
   display: flex;
