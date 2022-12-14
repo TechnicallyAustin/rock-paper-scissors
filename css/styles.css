@@ -28,7 +28,6 @@ padding-left: 10%;
 
 #selection-text {
 color: white;
-
 }
 
 
@@ -85,6 +84,15 @@ color: white;
   position: relative;
   gap: 8%;
   padding-left: 0;
+}
+
+#match-value-text,
+#user-value-text,
+#cpu-value-text,
+#round-value-text,
+#winner-value-text {
+  color: white;
+  
 }
 
 
