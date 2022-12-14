@@ -1,5 +1,7 @@
-let userScore = 0;
-let cpuScore = 0;
+    let userGameScore = 0;
+    let cpuGameScore = 0;
+    let totalRoundsPlayed = 0;
+    let currentRound = 0;
 
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
@@ -15,48 +17,74 @@ function play(userChoice, cpuChoice) {
     let cpuScore = document.getElementById('cpu-value-text');
     let roundsPlayed = document.getElementById('round-value-text');
     let winner = document.getElementById('winner-value-text');
-
-
-    
  
     switch (userChoice) {
         case "rock":
             if (cpuChoice === "rock") {
                 results.textContent = "Draw"
-                userScore.textContent = "Number of user wins"
-                cpuScore.textContent = "Number of CPU wins"
-                roundsPlayed.textContent = "Total Number of Rounds Played"
+                userScore.textContent = `${userGameScore}`
+                cpuScore.textContent = `${cpuGameScore}`
+                roundsPlayed.textContent = `${totalRoundsPlayed += 1}`
                 winner.textContent = "Winner is..."
             } else if (cpuChoice === "paper") {
-                   results.textContent = "Loss";
-                   userScore.textContent = "Number of user wins";
-                   cpuScore.textContent = "Number of CPU wins";
-                   roundsPlayed.textContent = "Total Number of Rounds Played";
+                   results.textContent = "Lose";
+                   userScore.textContent = `${(userGameScore)}`;
+                   cpuScore.textContent = `${cpuGameScore += 1}`;
+                   roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
                    winner.textContent = "Winner is...";
             } else if (cpuChoice === "scissors") {
-                   results.textContent = "Win";
-                   userScore.textContent = "Number of user wins";
-                   cpuScore.textContent = "Number of CPU wins";
-                   roundsPlayed.textContent = "Total Number of Rounds Played";
-                   winner.textContent = "Winner is...";
-
+                results.textContent = "Win";
+                userScore.textContent = `${(userGameScore += 1)}`;
+                cpuScore.textContent = `${cpuGameScore}`;
+                roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+                winner.textContent = "Winner is...";
             }
-            
-            // use Jquery to update the DOM with
-                // # of Rounds
-                // Winner of current round
-                // user and cpu choices
-                //
             break
         case "paper":
-            console.log(userChoice, cpuChoice);
+             if (cpuChoice === "rock") {
+               results.textContent = "Win";
+               userScore.textContent = `${userGameScore += 1}`;
+               cpuScore.textContent = `${cpuGameScore}`;
+               roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+               winner.textContent = "Winner is...";
+             } else if (cpuChoice === "paper") {
+               results.textContent = "Draw";
+               userScore.textContent = `${userGameScore}`;
+               cpuScore.textContent = `${(cpuGameScore)}`;
+               roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+               winner.textContent = "Winner is...";
+             } else if (cpuChoice === "scissors") {
+               results.textContent = "Lose";
+               userScore.textContent = `${(userGameScore)}`;
+               cpuScore.textContent = `${cpuGameScore += 1}`;
+               roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+               winner.textContent = "Winner is...";
+             }
             break
         case "scissors":
-            console.log(userChoice, cpuChoice);
+             if (cpuChoice === "rock") {
+               results.textContent = "Lose";
+               userScore.textContent = `${userGameScore}`;
+               cpuScore.textContent = `${cpuGameScore += 1}`;
+               roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+               winner.textContent = "Winner is...";
+             } else if (cpuChoice === "paper") {
+               results.textContent = "Win";
+               userScore.textContent = `${userGameScore += 1}`;
+               cpuScore.textContent = `${(cpuGameScore)}`;
+               roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+               winner.textContent = "Winner is...";
+             } else if (cpuChoice === "scissors") {
+               results.textContent = "Draw";
+               userScore.textContent = `${(userGameScore)}`;
+               cpuScore.textContent = `${cpuGameScore}`;
+               roundsPlayed.textContent = `${(totalRoundsPlayed += 1)}`;
+               winner.textContent = "Winner is...";
+             }
             break
             default:
-
     }
+
 }
 
 //function game()
