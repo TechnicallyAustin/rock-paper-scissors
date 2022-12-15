@@ -7,14 +7,29 @@ function createButtons() {
 
 function createRockButton() {
     // creates a Rock button
+    let rockDiv = document.getElementById('rock-div')
+    let rockButton = rockDiv.appendChild(document.createElement('button'))
+    rockButton.addButtonAttributes('id','rock-button')
+    rockButton.addButtonAttributes('src', 'assets/rock.jpg')
+    rockButton.addButtonAttributes('alt', 'image of a rock')
 }
 
 function createPaperButton() {
     //creates a Paper button
+    let paperDiv = document.getElementById('paper-div')
+    let paperButton = paperDiv.appendChild(document.createElement('button'))
+     paperButton.addButtonAttributes("id", "paper-button");
+     paperButton.addButtonAttributes("src", "assets/paper.jpg");
+     paperButton.addButtonAttributes("alt", "image of paper");
 }
 
 function createScissorsButton() {
     //creates a Scissor button
+    let scissorDiv = document.createElement('button')
+    let scissorButton = document.appendChild(document.createElement('button'))
+     scissorButton.addButtonAttributes("id", "scissor-button");
+     scissorButton.addButtonAttributes("src", "assets/scissors.jpg");
+     scissorButton.addButtonAttributes("alt", "image of scissors");
 }
 
 function createButtonEventListner() {
@@ -26,6 +41,9 @@ function createButtonEventListner() {
 
 function rockEventListener() {
     // creates a rock evenet listener
+    let rockButton = doucment.getElementById('rock-button')
+    rockButton.ad
+
 }
 
 function PaperEventListener() {
