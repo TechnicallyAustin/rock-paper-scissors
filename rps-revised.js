@@ -1,29 +1,24 @@
 function setupGame() {
     createButtons()
     createButtonEventListener()
-    
 }
 
 function createButtons() {
-    // calls on button creation methods
-    createRockButton()
-    createPaperButton()
+    createRockButton();
+    createPaperButton();
     createScissorsButton();
 }
 
 function createRockButton() {
-    // creates a Rock button
     let rockDiv = document.getElementById('rock-div')
     let rockButton = rockDiv.appendChild(document.createElement('button'))
     let rockImage = rockButton.appendChild(document.createElement('img'))
     rockImage.setAttribute('id', 'rock-button-image')
     rockImage.setAttribute('src', "assets/rock.jpg")
     rockImage.setAttribute('alt', "image of a rock")
-
 }
 
 function createPaperButton() {
-    //creates a Paper button
     let paperDiv = document.getElementById('paper-div')
     let paperButton = paperDiv.appendChild(document.createElement('button'))
     let paperImage = paperButton.appendChild(document.createElement('img'))
@@ -33,7 +28,6 @@ function createPaperButton() {
 }
 
 function createScissorsButton() {
-    //creates a Scissor button
     let scissorDiv = document.getElementById('scissor-div')
     let scissorButton = scissorDiv.appendChild(document.createElement('button'))
     let scissorImage = scissorButton.appendChild(document.createElement('img'))
@@ -43,39 +37,37 @@ function createScissorsButton() {
 }
 
 function createButtonEventListener() {
-    // calls on Button event listener methods
     rockEventListener()
     PaperEventListener()
     scissorsEventListener()
 }
 
 function rockEventListener() {
-    // creates a rock evenet listener
-    let rockButton = document.getElementById('rock-button-image')
-    let rockEvent = rockButton.addEventListener("click", () => {
-        playRound(getUserChoice("rock"), getComputerChoice())
+    let rockDiv = document.getElementById('rock-div')
+    let rockEvent = rockDiv.addEventListener("click", () => {
+        let input = "rock"
+        playRound(getUserChoice(input), getComputerChoice())
     })
 }
 
 function PaperEventListener() {
-    // createse a paper event listener
-    let rockButton = document.getElementById("paper-button-image");
-    let rockEvent = rockButton.addEventListener("click", () => {
-        playRound(getUserChoice("paper"), getComputerChoice());
+    let paperDiv = document.getElementById("paper-div");
+    let paperEvent = paperDiv.addEventListener("click", () => {
+        let input = "paper"
+        playRound(getUserChoice(input), getComputerChoice());
     });
 }
 
 function scissorsEventListener() {
-    // creates a scissors event listener
-    let rockButton = document.getElementById("scissor-button-image");
-    let rockEvent = rockButton.addEventListener("click", () => {
-        playRound(getUserChoice("scissors"), getComputerChoice());
+    let scissorDiv = document.getElementById("scissor-div");
+    let scissorEvent = scissorDiv.addEventListener("click", () => {
+        let input = "scissors"
+        playRound(getUserChoice(input), getComputerChoice());
     });
 }
 
 
 function getComputerChoice() {
-// generates the computeres selection
 const choices = ["rock", "paper", "scissors"]
 let element = Math.floor(Math.random() *3)
 let cpuChoice = choices[element]
@@ -108,37 +100,54 @@ function playRound(userChoice, cpuChoice) {
 }
 
 function rockEvaluation(cpuChoice) {
+    let results = document.getElementById("match-value-text");
+    let userScore = document.getElementById("user-value-text");
+    let cpuScore = document.getElementById("cpu-value-text");
+    let roundsPlayed = document.getElementById("round-value-text");
+    let winner = document.getElementById("winner-value-text");
+    let selection = document.getElementById("selection-text");
     if (cpuChoice === "rock") {
-        console.log("draw")
+        selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`        
     } else if (cpuChoice === "paper") {
-        console.log("Lose")
+        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`
     } else if (cpuChoice === "scissors"){
-        console.log("Win")
+        selection.textContent = `You Win! Computer Picked ${cpuChoice}`        
     }
 }
 
 function paperEvaluation(cpuChoice) {
+    let results = document.getElementById("match-value-text");
+    let userScore = document.getElementById("user-value-text");
+    let cpuScore = document.getElementById("cpu-value-text");
+    let roundsPlayed = document.getElementById("round-value-text");
+    let winner = document.getElementById("winner-value-text");
+    let selection = document.getElementById("selection-text");
        if (cpuChoice === "rock") {
+        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
          console.log("Win");
        } else if (cpuChoice === "paper") {
-         console.log("Draw");
+        selection.textContent= `It's a Draw! Computer Picked ${cpuChoice}`;
        } else if (cpuChoice === "scissors") {
-         console.log("Lose");
+        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
        }
 }
 
 function scissorsEvaluation(cpuChoice) {
+     let selection = document.getElementById("selection-text");
        if (cpuChoice === "rock") {
-         console.log("Lose");
+        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
        } else if (cpuChoice === "paper") {
-         console.log("Win");
+        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
        } else if (cpuChoice === "scissors") {
-         console.log("Draw");
-       }
+        selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`;
+        }
 }
 
 
-function roundWinner() {}
+function roundWinner() {
+    // edits the selction-text div
+        // updates the scoreboard
+}
 
 function winner() {
     // after n rounds comparee user wins to computer wins
