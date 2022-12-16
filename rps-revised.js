@@ -1,6 +1,7 @@
 function setupGame() {
     createButtons()
     createButtonEventListener()
+    
 }
 
 function createButtons() {
@@ -52,7 +53,7 @@ function rockEventListener() {
     // creates a rock evenet listener
     let rockButton = document.getElementById('rock-button-image')
     let rockEvent = rockButton.addEventListener("click", () => {
-        getUserChoice("rock")
+        playRound(getUserChoice("rock"), getComputerChoice())
     })
 }
 
@@ -60,7 +61,7 @@ function PaperEventListener() {
     // createse a paper event listener
     let rockButton = document.getElementById("paper-button-image");
     let rockEvent = rockButton.addEventListener("click", () => {
-      getUserChoice("paper");
+        playRound(getUserChoice("paper"), getComputerChoice());
     });
 }
 
@@ -68,7 +69,7 @@ function scissorsEventListener() {
     // creates a scissors event listener
     let rockButton = document.getElementById("scissor-button-image");
     let rockEvent = rockButton.addEventListener("click", () => {
-      getUserChoice("scissors");
+        playRound(getUserChoice("scissors"), getComputerChoice());
     });
 }
 
@@ -86,9 +87,58 @@ let userInput = string;
 return userInput
 }
 
-function playRound(userChoice, computerChoice) {
-    // plays a single roung of RPS
+function playRound(userChoice, cpuChoice) {
+    switch (userChoice) {
+        case "rock":
+            if (cpuChoice === "rock"){}
+            rockEvaluation(cpuChoice)
+            break
+        case "paper":
+            if (cpuChoice === "paper") {
+                paperEvaluation(cpuChoice)
+            }
+            break
+        case "scissors":
+            if (cpuChoice === "scissors") {
+                scissorsEvaluation(cpuChoice)
+            }
+            break
+            default:
+    }
 }
+
+function rockEvaluation(cpuChoice) {
+    if (cpuChoice === "rock") {
+        console.log("draw")
+    } else if (cpuChoice === "paper") {
+        console.log("Lose")
+    } else if (cpuChoice === "scissors"){
+        console.log("Win")
+    }
+}
+
+function paperEvaluation(cpuChoice) {
+       if (cpuChoice === "rock") {
+         console.log("Win");
+       } else if (cpuChoice === "paper") {
+         console.log("Draw");
+       } else if (cpuChoice === "scissors") {
+         console.log("Lose");
+       }
+}
+
+function scissorsEvaluation(cpuChoice) {
+       if (cpuChoice === "rock") {
+         console.log("Lose");
+       } else if (cpuChoice === "paper") {
+         console.log("Win");
+       } else if (cpuChoice === "scissors") {
+         console.log("Draw");
+       }
+}
+
+
+function roundWinner() {}
 
 function winner() {
     // after n rounds comparee user wins to computer wins
