@@ -1,38 +1,47 @@
+function setupGame() {
+    createButtons()
+    createButtonEventListener()
+}
+
 function createButtons() {
     // calls on button creation methods
     createRockButton()
     createPaperButton()
-    createScissorsButton()
+    createScissorsButton();
 }
 
 function createRockButton() {
     // creates a Rock button
     let rockDiv = document.getElementById('rock-div')
     let rockButton = rockDiv.appendChild(document.createElement('button'))
-    rockButton.addButtonAttributes('id','rock-button')
-    rockButton.addButtonAttributes('src', 'assets/rock.jpg')
-    rockButton.addButtonAttributes('alt', 'image of a rock')
+    let rockImage = rockButton.appendChild(document.createElement('img'))
+    rockImage.setAttribute('id', 'rock-button-image')
+    rockImage.setAttribute('src', "assets/rock.jpg")
+    rockImage.setAttribute('alt', "image of a rock")
+
 }
 
 function createPaperButton() {
     //creates a Paper button
     let paperDiv = document.getElementById('paper-div')
     let paperButton = paperDiv.appendChild(document.createElement('button'))
-     paperButton.addButtonAttributes("id", "paper-button");
-     paperButton.addButtonAttributes("src", "assets/paper.jpg");
-     paperButton.addButtonAttributes("alt", "image of paper");
+    let paperImage = paperButton.appendChild(document.createElement('img'))
+     paperImage.setAttribute("id", "paper-button-image");
+     paperImage.setAttribute("src", "assets/paper.jpg");
+     paperImage.setAttribute("alt", "image of paper");
 }
 
 function createScissorsButton() {
     //creates a Scissor button
-    let scissorDiv = document.createElement('button')
-    let scissorButton = document.appendChild(document.createElement('button'))
-     scissorButton.addButtonAttributes("id", "scissor-button");
-     scissorButton.addButtonAttributes("src", "assets/scissors.jpg");
-     scissorButton.addButtonAttributes("alt", "image of scissors");
+    let scissorDiv = document.getElementById('scissor-div')
+    let scissorButton = scissorDiv.appendChild(document.createElement('button'))
+    let scissorImage = scissorButton.appendChild(document.createElement('img'))
+     scissorImage.setAttribute("id", "scissor-button-image");
+     scissorImage.setAttribute("src", "assets/scissors.jpg");
+     scissorImage.setAttribute("alt", "image of scissors");
 }
 
-function createButtonEventListner() {
+function createButtonEventListener() {
     // calls on Button event listener methods
     rockEventListener()
     PaperEventListener()
@@ -41,44 +50,40 @@ function createButtonEventListner() {
 
 function rockEventListener() {
     // creates a rock evenet listener
-    let rockButton = doucment.getElementById('rock-button')
-    rockButton.ad
-
+    let rockButton = document.getElementById('rock-button-image')
+    let rockEvent = rockButton.addEventListener("click", () => {
+        getUserChoice("rock")
+    })
 }
 
 function PaperEventListener() {
     // createse a paper event listener
+    let rockButton = document.getElementById("paper-button-image");
+    let rockEvent = rockButton.addEventListener("click", () => {
+      getUserChoice("paper");
+    });
 }
 
 function scissorsEventListener() {
     // creates a scissors event listener
+    let rockButton = document.getElementById("scissor-button-image");
+    let rockEvent = rockButton.addEventListener("click", () => {
+      getUserChoice("scissors");
+    });
 }
 
-function addButtonAttributes() {
-    // calls on add attributes methods
-    rockAttributes()
-    paperAttributes()
-    scissorsAttributes()
-}
-
-function rockAttributes() {
-    // adds id, src, alt
-}
-
-function paperAttributes() {
-  // adds id, src, alt
-}
-
-function scissorsAttributes() {
-  // adds id, src, alt
-}
 
 function getComputerChoice() {
 // generates the computeres selection
+const choices = ["rock", "paper", "scissors"]
+let element = Math.floor(Math.random() *3)
+let cpuChoice = choices[element]
+return cpuChoice
 }
 
-function getUserChoice() {
-    // usereInput is equal to whichevere Event is triggered
+function getUserChoice(string) {
+let userInput = string;
+return userInput
 }
 
 function playRound(userChoice, computerChoice) {
