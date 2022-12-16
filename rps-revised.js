@@ -107,7 +107,8 @@ function rockEvaluation(cpuChoice) {
     let winner = document.getElementById("winner-value-text");
     let selection = document.getElementById("selection-text");
     if (cpuChoice === "rock") {
-        selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`        
+        selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}` 
+               
     } else if (cpuChoice === "paper") {
         selection.textContent = `You Lose! Computer Picked ${cpuChoice}`
     } else if (cpuChoice === "scissors"){
