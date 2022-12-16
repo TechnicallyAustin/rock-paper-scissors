@@ -4,6 +4,38 @@ const game = () => {
     const cpuScore = 0;
     const round = 0;
 
+    const createButtons = () => {
+        
+
+        ids.forEach(id => {
+            if (id === 'rock'){
+            const rockDiv = document.getElementById("rock-div")
+            const rockButton = rockDiv.appendChild(document.createElement("button"))
+            const rockImage = rockButton.appendChild(document.createElement("img"));
+                rockImage.setAttribute("id", "rock-button-image");
+                rockImage.setAttribute("src", "assets/rock.jpg");
+                rockImage.setAttribute("alt", "image of a rock");
+            } else if (id ===' paper'){
+                const paperDiv = document.getElementById("paper-div");
+                const paperButton = paperDiv.appendChild(document.createElement("button"));
+                const paperImage = paperButton.appendChild(document.createElement("img"));
+                paperImage.setAttribute("id", "paper-button-image");
+                paperImage.setAttribute("src", "assets/paper.jpg");
+                paperImage.setAttribute("alt", "image of paper");
+
+            } else {
+                    const scissorDiv = document.getElementById("scissor-div");
+                    const scissorButton = scissorDiv.appendChild(document.createElement("button"));
+                    const scissorImage = scissorButton.appendChild(document.createElement("img"));
+                    scissorImage.setAttribute("id", "scissor-button-image");
+                    scissorImage.setAttribute("src", "assets/scissors.jpg");
+                    scissorImage.setAttribute("alt", "image of scissors");
+
+            }
+        })
+
+    }
+
     const playGame = () => {
         // function to select the buttons and add event listeners to them
         const rockButton = document.getElementById('rock-button')
@@ -18,20 +50,12 @@ const game = () => {
         // loops through player choices to evaluatee player choice
         playerChoices.forEach(choice => {
             choice.addEventListener('click', function(){
-                // when clicked this should
-
-                    // add to the round counter x /10 rounds
-                    // add to Round
-
-                    // call cpuChoice
-
-
-                    // evaluates win combinations
-                        // winner(userChoice, CpuChoice)
-
-                    // update score values on the page
-                    // destermine when the game ends)
-
+                const roundsPlayed = document.getElementById("round-value-text");
+                    round++
+                    if (round > 10 ) {
+                    roundsPlayed.textContent = `${round} / 10`
+                    winner(choice, cpuPick);
+                    }
             })
         })
 
