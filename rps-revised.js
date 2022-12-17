@@ -15,6 +15,7 @@ const playGame = () => {
     const createRockButton = () => {
       const rockButton = gameDiv.appendChild(document.createElement("button"));
       rockButton.setAttribute("id", "rock-button");
+      rockButton.setAttribute("value", "rock")
       const rockImage = rockButton.appendChild(document.createElement("img"));
       rockImage.setAttribute("id", "rock-button-image");
       rockImage.setAttribute("src", "assets/rock.jpg");
@@ -25,6 +26,7 @@ const playGame = () => {
     const createPaperButton = () => {
       const paperButton = gameDiv.appendChild(document.createElement("button"));
       paperButton.setAttribute("id", "paper-button");
+      paperButton.setAttribute("value", "paper")
       const paperImage = paperButton.appendChild(document.createElement("img"));
       paperImage.setAttribute("id", "paper-button-image");
       paperImage.setAttribute("src", "assets/paper.jpg");
@@ -33,10 +35,9 @@ const playGame = () => {
     createPaperButton();
 
     const createScissorsButton = () => {
-      const scissorButton = gameDiv.appendChild(
-        document.createElement("button")
-      );
+      const scissorButton = gameDiv.appendChild(document.createElement("button"));
       scissorButton.setAttribute("id", "scissor-button");
+      scissorButton.setAttribute("value", "scissors")
       const scissorImage = scissorButton.appendChild(
         document.createElement("img")
       );
@@ -55,9 +56,9 @@ const playGame = () => {
     ];
     playerChoices.forEach((choice) => {
       choice.addEventListener("click", () => {
-        console.log(rounds, choice.innerHTML, cpuChoice);
+        console.log(rounds, choice.value, cpuChoice);
         rounds++;
-        winner(choice, cpuChoice);
+        winner(choice.value, cpuChoice);
         roundsPlayedText.textContent = rounds;
         if (rounds === 10) {
           endOfGame(playerChoices, roundsPlayed);
@@ -72,109 +73,105 @@ const playGame = () => {
     let userScoreText = document.getElementById("user-value-text");
     let cpuScoreText = document.getElementById("cpu-value-text");
     let selection = document.getElementById("selection-text");
-    switch (true) {
-      case cpuChoice === userChoice:
-        selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`;
-        results.textContent = "Draw";
-        userScoreText.textContent = `${userScore}`;
-        cpuScoreText.textContent = `${cpuScore}`;
-        break;
-      case cpuChoice === "rock" && userChoice === "paper":
-        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
-        userScore++;
-        userScoreText.textContent = `${userScore}`;
-        cpuScoreText.textContent = `${cpuScore}`;
-        results.textContent = "Win";
-        break;
-      case cpuChoice === "rock" && userChoice !== "paper":
-        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
-        results.textContent = "Lose";
-        cpuScore++;
-        cpuScoreText.textContent = `${cpuScore}`;
-        userScoreText.textContent = `${userScore}`;
-        results.textContent = "Lose";
-        break;
-      case cpuChoice === "paper" && userChoice === "scissors":
-        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
-        userScore++;
-        userScoreText.textContent = `${userScore}`;
-        results.textContent = "Win";
-        break;
-      case cpuChoice === "paper" && userChoice !== "scissors":
-        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
-        cpuScore++;
-        cpuScoreText.textContent = `${cpuScore}`;
-        userScoreText.textContent = `${userScore}`;
-        results.textContent = "Lose";
-        break;
-      case cpuChoice === "scissors" && userChoice === "rock":
-        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
-        userScore++;
-        userScoreText.textContent = `${userScore}`;
-        results.textContent = "Win";
-        break;
-      case cpuChoice === "scissors" && userChoice !== "rock":
-        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
-        cpuScore++;
-        cpuScoreText.textContent = `${cpuScore}`;
-        userScoreText.textContent = `${userScore}`;
-        results.textContent = "Lose";
-        break;
-    }
-
-
-
-
-
-
-    //if (cpuChoice === userChoice) {
-    //  selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`;
-    //  results.textContent = "Draw";
-    //  userScoreText.textContent = `${userScore}`;
-    //  cpuScoreText.textContent = `${cpuScore}`;
-    //} else if (cpuChoice === "rock") {
-    //  if (userChoice === "paper") {
+    //switch (true) {
+    //  case cpuChoice === userChoice:
+    //    selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`;
+    //    results.textContent = "Draw";
+    //    userScoreText.textContent = `${userScore}`;
+    //    cpuScoreText.textContent = `${cpuScore}`;
+    //    break;
+    //  case cpuChoice === "rock" && userChoice === "paper":
     //    selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
     //    userScore++;
     //    userScoreText.textContent = `${userScore}`;
     //    cpuScoreText.textContent = `${cpuScore}`;
     //    results.textContent = "Win";
-    //  } else {
+    //    break;
+    //  case cpuChoice === "rock" && userChoice !== "paper":
     //    selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
     //    results.textContent = "Lose";
     //    cpuScore++;
     //    cpuScoreText.textContent = `${cpuScore}`;
     //    userScoreText.textContent = `${userScore}`;
     //    results.textContent = "Lose";
-    //  }
-    //} else if (cpuChoice === "paper") {
-    //  if (userChoice === "scissors") {
+    //    break;
+    //  case cpuChoice === "paper" && userChoice === "scissors":
     //    selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
     //    userScore++;
     //    userScoreText.textContent = `${userScore}`;
     //    results.textContent = "Win";
-    //  } else {
+    //    break;
+    //  case cpuChoice === "paper" && userChoice !== "scissors":
     //    selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
     //    cpuScore++;
     //    cpuScoreText.textContent = `${cpuScore}`;
     //    userScoreText.textContent = `${userScore}`;
     //    results.textContent = "Lose";
-    //  }
-    //} else if (cpuChoice === "scissors") {
-    //  if (userChoice === "rock") {
+    //    break;
+    //  case cpuChoice === "scissors" && userChoice === "rock":
     //    selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
     //    userScore++;
     //    userScoreText.textContent = `${userScore}`;
     //    results.textContent = "Win";
-    //  }
-    //} else if (userChoice === "paper") {
-    //  selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
-    //  cpuScore++;
-    //  cpuScoreText.textContent = `${cpuScore}`;
-    //  userScoreText.textContent = `${userScore}`;
-    //  results.textContent = "Lose";
+    //    break;
+    //  case cpuChoice === "scissors" && userChoice !== "rock":
+    //    selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
+    //    cpuScore++;
+    //    cpuScoreText.textContent = `${cpuScore}`;
+    //    userScoreText.textContent = `${userScore}`;
+    //    results.textContent = "Lose";
+    //    break;
     //}
-  };
+
+    if (cpuChoice === userChoice) {
+      selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`;
+      results.textContent = "Draw";
+      userScoreText.textContent = `${userScore}`;
+      cpuScoreText.textContent = `${cpuScore}`;
+    } else if (cpuChoice === "rock") {
+      if (userChoice === "paper") {
+        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
+        userScore++;
+        userScoreText.textContent = `${userScore}`;
+        cpuScoreText.textContent = `${cpuScore}`;
+        results.textContent = "Win";
+      } else {
+        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
+        results.textContent = "Lose";
+        cpuScore++;
+        cpuScoreText.textContent = `${cpuScore}`;
+        userScoreText.textContent = `${userScore}`;
+        results.textContent = "Lose";
+      }
+    } else if (cpuChoice === "paper") {
+      if (userChoice === "scissors") {
+        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
+        userScore++;
+        userScoreText.textContent = `${userScore}`;
+        results.textContent = "Win";
+      } else {
+        selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
+        cpuScore++;
+        cpuScoreText.textContent = `${cpuScore}`;
+        userScoreText.textContent = `${userScore}`;
+        results.textContent = "Lose";
+      }
+    } else if (cpuChoice === "scissors") {
+      if (userChoice === "rock") {
+        selection.textContent = `You Win! Computer Picked ${cpuChoice}`;
+        userScore++;
+        userScoreText.textContent = `${userScore}`;
+        results.textContent = "Win";
+      }
+    } else if (userChoice === "paper") {
+      selection.textContent = `You Lose! Computer Picked ${cpuChoice}`;
+      cpuScore++;
+      cpuScoreText.textContent = `${cpuScore}`;
+      userScoreText.textContent = `${userScore}`;
+      results.textContent = "Lose";
+    }
+};
+  
 
   const endOfGame = (playerChoices, roundsPlayed) => {
     playerChoices.forEach((choice) => {
