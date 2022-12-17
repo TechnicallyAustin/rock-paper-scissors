@@ -7,55 +7,48 @@ const game = () => {
 
         const playGame = () => {
           // function to select the buttons and add event listeners to them
-          const rockButton = document.getElementById("rock-button");
-          const paperButton = document.getElementById("papeer-butotn");
-          const scissorsButton = document.getElementById("scissors-button");
-          const playerChoices = [rockButton, paperButton, scissorsButton];
+          const gameDiv = document.getElementById("game-div");
+          const newRockButton = gameDiv.appendChild(document.createElement("button"));
+          const newPaperButton = gameDiv.appendChild(document.createElement("button"));
+          const newScissorButton = gameDiv.appendChild(document.createElement("button"));
+          const rockButtonSelector = document.getElementById("rock-button");
+          const paperButtonSelector = document.getElementById("paper-butotn");
+          const scissorsButtonSelector = document.getElementById("scissors-button");
+          const playerChoices = [rockButtonSelector, paperButtonSelector, scissorsButtonSelector];
           const roundsPlayed = document.getElementById("round-value-text");
           const cpuChoices = ["rock", "paper", "scissors"];
-          const element = Math.floor(Math.Random() * 3);
+          const element = Math.floor(Math.random() * 3);
           const cpuPick = cpuChoices[element];
 
-          // loops through player choices to evaluatee player choice
-          playerChoices.forEach((choice) => {
-            choice.addEventListener("click", function () {
-              round++;
-              winner(choice, cpuPick);
-              if (round === 10) {
-                endOfGame(playerChoices, roundsPlayed);
-              }
-            });
-          });
-        
-
-    const createButtons = () => {
-        
-
-        ids.forEach(id => {
-            if (id === 'rock'){
-            const rockDiv = document.getElementById("rock-div")
-            const rockButton = rockDiv.appendChild(document.createElement("button"))
-            const rockImage = rockButton.appendChild(document.createElement("img"));
-                rockImage.setAttribute("id", "rock-button-image");
-                rockImage.setAttribute("src", "assets/rock.jpg");
-                rockImage.setAttribute("alt", "image of a rock");
-            } else if (id ===' paper'){
-                const paperDiv = document.getElementById("paper-div");
-                const paperButton = paperDiv.appendChild(document.createElement("button"));
-                const paperImage = paperButton.appendChild(document.createElement("img"));
-                paperImage.setAttribute("id", "paper-button-image");
-                paperImage.setAttribute("src", "assets/paper.jpg");
-                paperImage.setAttribute("alt", "image of paper");
-            } else {
-                    const scissorDiv = document.getElementById("scissor-div");
-                    const scissorButton = scissorDiv.appendChild(document.createElement("button"));
-                    const scissorImage = scissorButton.appendChild(document.createElement("img"));
-                    scissorImage.setAttribute("id", "scissor-button-image");
-                    scissorImage.setAttribute("src", "assets/scissors.jpg");
-                    scissorImage.setAttribute("alt", "image of scissors");
+           const createButtons = () => {
+                playerChoices.forEach(id => {
+                    if (id === 'rock'){
+                        newRockButton.setAttribute("id", "rock-button");
+                        newRockButton.setAttribute("src", "assets/rock.jpg");
+                        newRockButton.setAttribute("alt", "image of a rock");
+                    } else if (id ===' paper'){
+                        newPaperButton.setAttribute("id", "paper-button");
+                        newPaperButton.setAttribute("src", "assets/paper.jpg");
+                        newPaperButton.setAttribute("alt", "image of paper");
+                    } else {
+                        newScissorButton.setAttribute("id", "scissor-button");
+                        newScissorButton.setAttribute("src", "assets/scissors.jpg");
+                        newScissorButton.setAttribute("alt", "image of scissors");
+                    }
+                })
             }
-        })
-    }
+
+            playerChoices.forEach(choice => {
+                choice.addEventListener('click', () => {
+                    round++;
+                    winner(choice, cpuPick);
+                        if (round === 10) {
+                            endOfGame(playerChoices, roundsPlayed)
+                        }
+                });
+            });
+        
+        }
 
     
     const winner = (userChoice, cpuChoice) => {
@@ -119,8 +112,5 @@ const game = () => {
                 }
         }
         playGame();
-
-
-}
 
 };
