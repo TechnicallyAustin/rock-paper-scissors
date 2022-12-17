@@ -51,10 +51,16 @@ color: white;
   padding: 4%;
 }
 
-#game-div button {
+#rock-button,
+#paper-button,
+#scissor-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: Purple;
   color: white;
   font-size: 28px;
+  width: 30%;
 }
 
 #rock-div,
@@ -71,7 +77,7 @@ color: white;
 #paper-button-image,
 #scissor-button-image {
   width: 100%;
-  padding: 0;
+  padding: 4%;
 }
 
 #results-div {
@@ -95,5 +101,18 @@ color: white;
   
 }
 
+#play-again {
+  color:black;
+  background-color: black;
+  position: absolute;
+  top: 80%;
+}
 
+#replay-button {
+height: 4vh;
+width: 40vw;
+color: white;
+background-color: black;
+border: none;
+}
 

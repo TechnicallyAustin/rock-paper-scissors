@@ -123,7 +123,6 @@ const playGame = () => {
         break;
     }
 };
-  
 
   const endOfGame = (playerChoices, roundsPlayed) => {
     playerChoices.forEach((choice) => {
@@ -133,6 +132,7 @@ const playGame = () => {
     const userScoreText = document.getElementById("user-value-text");
     const cpuScoreText = document.getElementById("cpu-value-text");
     const selectionText = document.getElementById("selection-text");
+    const roundsPlayedText = document.getElementById("round-value-text")
 
     if (userScore > cpuScore) {
       selectionText.textContent = `Congratulations! You won ${userScore} to ${cpuScore}`;
@@ -146,7 +146,25 @@ const playGame = () => {
     }
     userScoreText.textContent = `${userScore}`;
     cpuScoreText.textContent = `${cpuScore}`;
-    roundsPlayed.textContent = "10";
+    roundsPlayedText.textContent = "10";
+
+    const replay = document.getElementById('play-again')
+    const playButton = replay.appendChild(document.createElement('button'))
+    playButton.setAttribute('id', 'replay-button')
+    playButton.textContent = 'Play Again?'
+    playButton.addEventListener('click', () => {
+        resultsText.textContent = ""
+        userScoreText.textContent = 0
+        cpuScoreText.textContent = 0
+        roundsPlayed.textContent = "0"
+        winner.textContent = ""
+        playButton.textContent = ""
+        
+
+        
+      })
+    
+
   };
 };
   playGame();
