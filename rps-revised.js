@@ -18,7 +18,7 @@ function game() {
           const roundsPlayed = document.getElementById("round-value-text");
           const cpuChoices = ["rock", "paper", "scissors"];
           const element = Math.floor(Math.random() * 3);
-          const cpuPick = cpuChoices[element];
+          const cpuChoice = cpuChoices[element];
 
 
             const createRockButton = () => {
@@ -46,31 +46,28 @@ function game() {
                 choice.addEventListener('click', () => {
                     console.log(rounds)
                     rounds++
-                    winner(choice, cpuPick)
+                    winner(choice, cpuChoice)
                         if (rounds === 10) {
                             endOfGame(playerChoices, roundsPlayed)
                         }
                 });
             });
         }
-        
+        createButtons()
+    
 
-    }
-
-    const winnner = () => {
+        const winner = (userChoice, cpuChoice) => {
         let results = document.getElementById("match-value-text");
          let userScoreText = document.getElementById("user-value-text");
          let cpuScoreText = document.getElementById("cpu-value-text");
          let selection = document.getElementById("selection-text");
 
          if (cpuChoice === userChoice){
-
             selection.textContent = `It's a Draw! Computer Picked ${cpuChoice}`
             results.textContent = 'Draw'
         }
 
              else if (cpuChoice === 'rock') {
-
                 if (userChoice === 'paper') {
                     selection.textContent = `You Win! Computer Picked ${cpuChoice}`
                     userScore++
@@ -80,11 +77,11 @@ function game() {
                      selection.textContent = `You Lose! Computer Picked ${cpuChoice}`
                      results.textContent = 'Lose'
                      cpuScore++
-                     cpuScoreText.textContent = `${cpuScore}`}
+                     cpuScoreText.textContent = `${cpuScore}`
                     }
+            }
 
             else if (cpuChoice === 'paper') {
-
                 if (userChoice === 'scissors'){
                     selection.textContent = `You Win! Computer Picked ${cpuChoice}`
                     userScore++
@@ -105,15 +102,10 @@ function game() {
                 cpuScore++
                 cpuScoreText.textContent = `${cpuChoice}`
             }
-        }
+    }
 
         const endOfGame = (userChoices, round) => {
             let winner = document.getElementById("winner-value-text");
-            // compares user wins to cpu wins
-                // if userwins are higher the user wins
-                    // updates the score board with the over all winner
-            // else computer wins
-                // update scoreboard
                 if (userScore === cpuScore){
                     winner.textContent = "It's a Tie!"
                 } else if (userScore > cpuScore){
@@ -122,8 +114,11 @@ function game() {
                     winner.textContent = 'You Lose!'
                 }
         }
-        playGame()
     }
+    playGame()
+    
+}
+game()
 
 
 
