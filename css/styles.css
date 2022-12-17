@@ -1,10 +1,9 @@
 :root {
   margin: 0;
-  top: 0;
-  left: 0;
 }
 
 h1 {
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -41,14 +40,13 @@ color: white;
 }
 
 #game-div {
+  width: 100%;
   background-color: black;
   height: 45vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 3%;
   position: relative;
-  padding: 4%;
 }
 
 #rock-button,
@@ -81,12 +79,12 @@ color: white;
 }
 
 #results-div {
-  height: auto;
+  height: 34vh;
   background-color: green;
   margin-top: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   gap: 8%;
   padding-left: 0;
@@ -98,7 +96,11 @@ color: white;
 #round-value-text,
 #winner-value-text {
   color: white;
-  
+}
+
+h3 {
+  color: white;
+  letter-spacing: 2px;
 }
 
 #play-again {
